@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: lightgray;
+  margin: 0;
+}
+
+header {
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  color: white;
+}
+
+main {
+  width: 70%;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+input, textarea {
+  width: 300px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+button {
+  background-color: darkblue;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: blue;
+}

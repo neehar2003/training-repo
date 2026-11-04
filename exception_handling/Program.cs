@@ -1,3 +1,3 @@
-﻿using exception_handling.Exercises;
+﻿using exception_handling.ExceptionHandlingClass;
 
 Exercise1_1.Run();

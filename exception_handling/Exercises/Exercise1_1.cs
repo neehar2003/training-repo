@@ -1,7 +1,7 @@
 using exception_handling.Exceptions;
 using exception_handling.Parsing;
 
-namespace exception_handling.Exercises;
+namespace exception_handling.ExceptionHandlingClass;
 
 //Exercise 1.1 - custom exception
 static class Exercise1_1

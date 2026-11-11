@@ -16,12 +16,19 @@ function App(){
     setItems([...items, {id:Date.now(), name: text}])
     setText("")
   }
+  function handleDelete(id){
+    setItems(items.filter(item => item.id !== id))
+  }
   return (
   <div>
     <Header title="Fruits" count={5} />
     <Header title="Vegetables"/>
     <ul>
-      {items.map(item => <ListItem key={item.id} name={item.name} />)}
+      {items.map(item => <ListItem
+      key={item.id}
+      name={item.name}
+      onDelete={()=> handleDelete(item.id)}
+       />)}
     </ul>
     <input 
       value={text} 

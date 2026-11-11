@@ -4,7 +4,7 @@ namespace BookCatalog.Services;
 
 public class BookService : IBookService         //class implements the interface
 {
-    private readonly List<Book>_books = new()
+    private readonly List<Book> books = new()
     {
         new Book                                  //seeding 3 books
         {

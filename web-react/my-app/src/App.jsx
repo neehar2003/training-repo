@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState } from "react";
 import Header from "./components/Header";
 import ListItem from "./components/ListItem";
@@ -19,7 +20,7 @@ function App(){
     setItems(items.filter(item => item.id !== id))
   }
   return (
-  <div>
+  <div className="app">
     <Header title="Fruits" count={items.length} />
     <ul>
       {items.map(item => <ListItem
@@ -28,10 +29,12 @@ function App(){
       onDelete={()=> handleDelete(item.id)}
        />)}
     </ul>
+    <div clasName ="add-form">
     <input 
       value={text} 
       onChange={(e) => setText(e.target.value)} />
       <button onClick={handleAdd}>Add</button>
+    </div>
   </div>
   )
 }

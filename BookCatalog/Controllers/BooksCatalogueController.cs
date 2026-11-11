@@ -30,7 +30,7 @@ public class BooksCatalogueController : ControllerBase
     {
         var book = _bookService.GetById(id);
         if (book == null)
-            return NotFound();
+            return BadRequest("Book Id cannot be empty");
 
         return Ok(book);
     }

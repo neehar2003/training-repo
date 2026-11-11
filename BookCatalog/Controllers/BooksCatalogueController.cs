@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookCatalog.Controllers;
 
 [ApiController]            //returns bad request if breaks required or range rules 
-[Route("[controller]")]    //sets base URL for every action, BooksController becomes /books
-public class BooksController : ControllerBase          
+[Route("api/v1/books")]
+public class BooksCatalogueController : ControllerBase          
 {
     private readonly IBookService _bookService;         //constructor injection
 
-    public BooksController(IBookService bookService)        //type is interface, so controllers doesnt know about BookService
+    public BooksCatalogueController(IBookService bookService)        //type is interface, so controllers doesnt know about BookService
     {
         _bookService = bookService;
     }

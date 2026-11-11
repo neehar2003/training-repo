@@ -2,7 +2,6 @@ import { useState } from "react";
 import Header from "./components/Header";
 import ListItem from "./components/ListItem";
 function App(){
-  const [count, setCount] = useState(0)
   const [text, setText] = useState("")
   const [items, setItems] = useState([
     { id: 1, name: "Apple" },
@@ -21,8 +20,7 @@ function App(){
   }
   return (
   <div>
-    <Header title="Fruits" count={5} />
-    <Header title="Vegetables"/>
+    <Header title="Fruits" count={items.length} />
     <ul>
       {items.map(item => <ListItem
       key={item.id}
@@ -34,16 +32,6 @@ function App(){
       value={text} 
       onChange={(e) => setText(e.target.value)} />
       <button onClick={handleAdd}>Add</button>
-    <p>{count}</p>
-    <button onClick={()=> setCount(count+1)}>
-      Increment
-    </button>
-    <button onClick={()=> setCount(count-1)}>
-      Decrement
-    </button>
-    <button onClick={()=> setCount(0)}>
-      Reset
-    </button>
   </div>
   )
 }

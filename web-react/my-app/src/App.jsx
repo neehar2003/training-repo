@@ -10,6 +10,12 @@ function App(){
     { id: 3, name: "Watermelon" },
     { id: 4, name: "Mango" },
   ])
+  function handleAdd(){
+    /* strips whitespaces */
+    if(text.trim()==="")return
+    setItems([...items, {id:Date.now(), name: text}])
+    setText("")
+  }
   return (
   <div>
     <Header title="Fruits" count={5} />
@@ -19,9 +25,8 @@ function App(){
     </ul>
     <input 
       value={text} 
-      onChange={(e) => setText(e.target.value)}>
-      </input>
-    <p>{text}</p>
+      onChange={(e) => setText(e.target.value)} />
+      <button onClick={handleAdd}>Add</button>
     <p>{count}</p>
     <button onClick={()=> setCount(count+1)}>
       Increment

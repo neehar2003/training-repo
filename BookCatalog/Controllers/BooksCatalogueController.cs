@@ -31,7 +31,7 @@ public class BooksCatalogueController : ControllerBase
     {
         var book = _bookService.GetById(id);
         if (book == null)
-            return NotFound();
+            return BadRequest("Book Id cannot be empty");
 
         return Ok(book);
     }
@@ -55,7 +55,7 @@ public class BooksCatalogueController : ControllerBase
         var deleted = _bookService.Delete(id);
         //not deleted , return 404
         if(!deleted)
-            return NotFound();
+            return NotFound("Book Id is not found");
         //no content, return 204
         return NoContent();
     }

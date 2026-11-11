@@ -1,3 +1,4 @@
+using System.Data;
 using BookCatalog.Models;
 using BookCatalog.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,8 @@ public class BooksCatalogueController : ControllerBase
     public ActionResult<Book> Add(Book book)
     {
         var created = _bookService.Add(book);
+        if(created == null)
+            return Conflict();
         //CreatedAtAction returns 201 created
         //its arguments are actions that can get the new resource, route values for it , and the body
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);

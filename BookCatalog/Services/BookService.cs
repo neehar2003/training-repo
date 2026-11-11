@@ -4,35 +4,18 @@ namespace BookCatalog.Services;
 
 public class BookService : IBookService         //class implements the interface
 {
-    private readonly List<Book>_books = new()
+    private readonly List<Book>_books = SeedBooks();
+
+    private static List<Book> SeedBooks()
     {
-        new Book                                  //seeding 3 books
+        return new List<Book>                                //seeding 3 books
         {
-            Id = 1,
-            Title = "Wings of Fire",
-            Author ="Abdul Kalam",
-            CopiesAvailable = 3
+            new Book{Id = 1, Title = "Wings of Fire", Author ="Abdul Kalam", CopiesAvailable = 3 },
+            new Book{Id = 2, Title = "Harry Potter Deathly Hallows", Author ="JK Rowling",CopiesAvailable = 4 },
+            new Book{Id = 3, Title = "Atomic Habits", Author ="James Clear", CopiesAvailable = 7},
+        };
+    }
 
-        },
-
-        new Book
-        {
-            Id = 2,
-            Title = "Harry Potter Deathly Hallows",
-            Author ="JK Rowling",
-            CopiesAvailable = 4
-
-        },
-
-        new Book
-        {
-            Id = 3,
-            Title = "Atomic Habits",
-            Author ="James Clear",
-            CopiesAvailable = 7
-
-        },
-    };
     public List<Book> GetAll(string? author)            //handles both GET /books and GET /books?author=
     {
         if (string.IsNullOrWhiteSpace(author))
@@ -50,8 +33,11 @@ public class BookService : IBookService         //class implements the interface
         //returns first book matching the condition, or default value when none matches
         return _books.FirstOrDefault(b => b.Id == id);
     }
-    public Book Add(Book book)
+    public Book? Add(Book book)
     {
+        var exists = _books.Any(b => b.Title == book.Title);
+        if (exists)
+            return null;
         //ternary operator , Any() asks does the list have atleast 1 book
         //if yes new id = highest id + 1
         //if no id = 1 
